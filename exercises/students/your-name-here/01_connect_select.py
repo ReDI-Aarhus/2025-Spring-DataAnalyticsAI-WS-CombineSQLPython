@@ -1,18 +1,18 @@
-#=======================================
+# =======================================
 # Exercise 01_connect_select
-#=======================================
+# =======================================
 # Topic: connect & SELECT basics
 
-#=======================================
+# =======================================
 
-#Run in terminal: pip install pyodbc pandas
+# Run in terminal: pip install pyodbc pandas
 import pyodbc
 
-SERVER =   '<server-address>'
-DATABASE = '<database-name>'
-USERNAME = '<username>'
-PASSWORD = '<password>'
-connectionString = f'DRIVER={{ODBC Driver 17 for SQL Server}};SERVER={SERVER};DATABASE={DATABASE};UID={USERNAME};PWD={PASSWORD}'
+SERVER = 'redi-sandbox-01-sql.database.windows.net'
+DATABASE = 'ReDI-SQL-Fundamentals-01'
+USERNAME = 'Student01'
+PASSWORD = 'StrongPassword!123'
+connectionString = f'DRIVER={{ODBC Driver 18 for SQL Server}};SERVER={SERVER};DATABASE={DATABASE};UID={USERNAME};PWD={PASSWORD}'
 
 conn = pyodbc.connect(connectionString)
 
@@ -33,17 +33,17 @@ cursor.execute(SQL_QUERY)
 
 records = cursor.fetchall()
 
-#print total resultset 
-print("print(records):") 
-print(records) 
+# print total resultset
+print("print(records):")
+print(records)
 
-#Divider
+# Divider
 print("\n" + "-" * 50 + "\n")
 
-#print total resultset - formatted
+# print total resultset - formatted
 
-#print header
+# print header
 print(f"Number\t""StudentName")
 for r in records:
-    #print records
+    # print records
     print(f"{r.Number}\t{r.StudentName}")

@@ -8,11 +8,11 @@
 #Run in terminal: pip install pyodbc pandas
 import pyodbc
 
-SERVER =   '<server-address>'
-DATABASE = '<database-name>'
-USERNAME = '<username>'
-PASSWORD = '<password>'
-connectionString = f'DRIVER={{ODBC Driver 17 for SQL Server}};SERVER={SERVER};DATABASE={DATABASE};UID={USERNAME};PWD={PASSWORD}'
+SERVER = 'redi-sandbox-01-sql.database.windows.net'
+DATABASE = 'ReDI-SQL-Fundamentals-01'
+USERNAME = 'Student01'
+PASSWORD = 'StrongPassword!123'
+connectionString = f'DRIVER={{ODBC Driver 18 for SQL Server}};SERVER={SERVER};DATABASE={DATABASE};UID={USERNAME};PWD={PASSWORD}'
 
 conn = pyodbc.connect(connectionString)
 

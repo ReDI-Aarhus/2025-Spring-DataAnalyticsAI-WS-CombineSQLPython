@@ -16,6 +16,7 @@ conn = pyodbc.connect(connectionString)
 
 import pandas as pd
 
+
 #df = dataframe
 df = pd.read_sql("SELECT * FROM SalesLT.Product ", conn)
 print(df.head(25))

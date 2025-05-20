@@ -289,19 +289,19 @@ FROM SalesLT.Customer c
 ORDER BY TotalSpent DESC;
 ```
 
-✅ **Exercise (optional based on DB):**
-- Call a stored procedure or create a simple one:
+---
+
+## 🧠 5. Stored Procedures & Functions
+
+✅ **Exercise [05__procedure_functions.py](../exercises/students/your-name-here/05_procedure_functions.py):**
+- Call a stored procedure & function:
 ```sql
-CREATE PROCEDURE SayHello
-AS
-BEGIN
-    SELECT 'Hello from SQL' AS message
-END
+EXEC usp_GetTopProductsBySales
+
+SELECT dbo.ufn_GetTotalSpentByCustomer
 ```
 
 Then call it from Python and print the result.
-
-
 
 ---
 
@@ -336,16 +336,24 @@ print(df)
 ## 🧪 7. Challenge: Insert & Query Mini App
 
 ### Goal:
+- Get the app functions configured
 - We will try to export data from SQL results into .csv
 - We will try to read it back and transform data
 - Optional: basic user input
 
 ```python
-cursor.execute("INSERT INTO users (name, email) VALUES (?, ?)", ("Alice", "alice@example.com"))
-conn.commit()
+data = {'Country': ['Belgium',  'India',  'Brazil'],
 
-df = pd.read_sql("SELECT * FROM users WHERE name = ?", conn, params=("Alice",))
-print(df)
+'Capital': ['Brussels',  'New Delhi',  'Brasilia'],
+
+'Population': [11190846, 1303171035, 207847528]} 
+
+df = pd.DataFrame(data,columns=['Country',  'Capital',  'Population'])
+
+df.to_csv('myDataFrame.csv')
+pd.read_csv('myDataFrame.csv', header=None, nrows=5)
+
+
 ```
 
 
